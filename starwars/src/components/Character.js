@@ -1,11 +1,12 @@
 // Write your Character component here
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import jediIcon from "../images/jedi-solid.svg";
 
 const CharacterCard = styled.div`
     background: white;
     border: 1px solid;
+    height: ${props => props.cardHeight};
     margin: 2% auto;
     padding: 2.5% 0;
     width: 33%;
@@ -29,6 +30,7 @@ const CharacterName = styled.h2`
 
 function Character(props) {
     const { character } = props;
+    
 
     return (
         <CharacterCard>

@@ -8,6 +8,8 @@ const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
   const [ characters, setCharacters ] = useState([]);
+  const [ nextCharacters, setNextCharacters] = useState([]);
+  const [ previousCharacters, setPreviousCharacters ] = useState([]);
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
@@ -16,6 +18,10 @@ const App = () => {
     axios.get("https://swapi.dev/api/people/")
     .then(response => {
       setCharacters(response.data.results);
+      setNextCharacters(response.data.next);
+      if (response.data.previous) {
+        setPreviousCharacters(response.data.previous)
+      }
     })
     .catch(error => {
       console.log(error);
@@ -28,7 +34,7 @@ const App = () => {
       <h1 className="Header">STAR WARS</h1>
       {
         characters.map(character => {
-          return <Character key={character.name} character={character} />
+          return <Character key={character.name} character={character}/>
         })
       }
     </div>
