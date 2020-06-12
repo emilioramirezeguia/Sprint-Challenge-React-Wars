@@ -2,15 +2,20 @@
 import React from "react";
 import styled from "styled-components";
 
+const CharacterCard = styled.div`
+    background: white;
+    border: 1px solid;
+    margin: auto;
+    padding: 2.5% 0;
+    width: 33%;
+    font-family: "Distant Galaxy";
+`
+
 function Character(props) {
     const { character } = props;
 
     return (
-        <div>
-            <ul>
-                <li>{character.name}</li>
-            </ul>
-        </div>
+        <CharacterCard>{character.name}</CharacterCard>
     )
 }
 
