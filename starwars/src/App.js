@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div className="App">
       <GlobalFonts />
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">STAR WARS</h1>
       {
         characters.map(character => {
           return <Character key={character.name} character={character} />
